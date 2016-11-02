@@ -1,0 +1,233 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="project.css">
+		<title>Blue Fragrance - Home</title>
+		
+	</head>
+		
+	
+	<body>
+	
+		<div id="header" >
+			<img src="img/banner.jpg" alt="tidak-ada-gambar" width="1280px" height="250px">
+		</div>
+	
+	
+		<div id="cssmenu">
+		<ul>
+				<li><a href="projectWBP.html">Home</a></li>
+				<li><a href="collection.html">Collection</a></li>
+				<li><a href="register.html">Register</a></li>
+				<li><a href="aboutus.html">About Us</a></li>
+				<li><a href="contactus.html">Contact Us</a></li>
+		</ul>
+		</div>	
+		<img src="img/register.png" width="200px" height="50px">
+		<script type='text/javascript'>
+			function Captcha(){
+                    var alphabets = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+					var numbers = new Array('1','2','3','4','5','6','7','8','9','0');
+                    var i;
+                    for (i=0;i<3;i++){
+                       var a = alphabets[Math.floor(Math.random() * alphabets.length)];
+                       var b = alphabets[Math.floor(Math.random() * alphabets.length)];
+                       var c = numbers[Math.floor(Math.random() * numbers.length)];
+                       var d = numbers[Math.floor(Math.random() * numbers.length)];
+                       var e = numbers[Math.floor(Math.random() * numbers.length)];
+                    }
+                    var code = a + b + c + d + e ;
+                    document.getElementById("mainCaptcha").value = code
+            }
+		
+			
+			
+			function revalidasi(){
+			var Warning = document.getElementById('Warning');
+			var nama = document.getElementById('username');
+			var namax = document.getElementById('username').value;
+			var password = document.getElementById('password');
+			var passwordx = document.getElementById('password').value;
+			var confirmpassword = document.getElementById('confirmpassword');
+			var pria = document.getElementById('male');
+			var wanita = document.getElementById('female');
+			var email = document.getElementById('email');
+			var emailx = document.getElementById('email').value;
+			var alamat = document.getElementById('alamat');
+			var alamatx = document.getElementById('alamat').value;
+			var captcha = document.getElementById('captcha');
+			var mainCaptcha = document.getElementById('mainCaptcha');
+			var alphax = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
+			var alphanumerix = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+			var emaily = emailx.split('@');
+			var emailz = emailx.split('.');
+			var namay = namax.split(' ');
+							
+				for (i=0; i<namax.length; i++) {
+					if (alphax.indexOf(namax.charAt(i))<0) {
+						var cek = 0;
+					}
+				}
+				for (i=0; i<passwordx.length; i++) {
+					if (alphanumerix.indexOf(passwordx.charAt(i))<0) {
+						var cek1 = 0;
+					}
+				}
+				
+			
+			Warning.style.color = "red";			
+			
+				// Name Validation
+				if(nama.value == ""){ 
+					Warning.innerHTML = 'Name Must be filled.';
+				}else if(nama.value.length < 6){
+					Warning.innerHTML = 'Length of Name must be at least 6 characters.';
+				}else if(cek == 0){
+					Warning.innerHTML = 'Name Must contain alphabet only.';
+				}else if(namay.length == 1){
+					Warning.innerHTML = 'Name Must contain 2 words minimal.';
+				}else if(namay[1].length == 0){
+					Warning.innerHTML = 'Name Must contain 2 words minimal.';
+					
+				// Gender Validation
+				}else if(pria.checked == false && wanita.checked == false){
+					Warning.innerHTML = 'Gender Must be chosen.';
+					
+				// Password Validation	
+				}else if(password.value == ""){
+					Warning.innerHTML = 'Password Must be filled.';
+				}else if(cek1 == 0){
+					Warning.innerHTML = 'Password Must contain alphabetic and numeric characters only.';
+				}else if(password.value.length < 6){
+					Warning.innerHTML = 'Length of Password must be at least 6 characters.';
+					
+				// Confirm Password Validation
+				}else if(confirmpassword.value != password.value){
+					Warning.innerHTML = 'Confirm Password Must match with Password.';
+				}else if(confirmpassword.value == ""){
+					Warning.innerHTML = 'Confirm Password Must be filled.';
+				
+				// Email Validation
+				}else if(email.value == ""){
+					Warning.innerHTML = 'Email Must be filled';
+				}else if(emailx.indexOf('@')== -1 || emailx.indexOf('.') == -1){
+					Warning.innerHTML = 'Email must contain At (@) character and Dot (.) character.';
+				}else if(emailx.split('@').length > 2){
+					Warning.innerHTML = 'At (@) character cannot be more than one in email.';
+				}else if(emailx.charAt(emailx.length-1)=='@' || emailx.charAt(emailx.length-1)=='.'){
+					Warning.innerHTML = 'At (@) and Dot (.) character cannot be the first and the last character of Email.';
+				}else if(emailx.indexOf('@')== 0 || emailx.indexOf('.')== 0){
+					Warning.innerHTML = 'At (@) and Dot (.) character cannot be the first and the last character of Email.'; 
+				}else if(emailx.indexOf('.')==(emailx.indexOf('@')+1) || emailx.indexOf('@')==(emailx.indexOf('.')+1)){
+					Warning.innerHTML = 'At (@) and Dot (.) characters cannot be placed beside each other in email.'; 
+				}else if(emaily[1].indexOf('.') == -1){
+					Warning.innerHTML = "Email Must Have At Least One '.' After '@' !!";
+				}else if(emaily[0].charAt(emaily[0].indexOf('.')+1)=='.' || emaily[1].charAt(emaily[1].indexOf('.')+1)=='.'){ 
+					Warning.innerHTML = "'.' Can Not Beside '.' !!";
+				}else if(emaily[0].indexOf('.') != -1){
+					Warning.innerHTML = "Dot (.) musn't be placed before At (@)";
+				}else if(emailz.length == 4){
+					Warning.innerHTML = "Email Must Have 2 maximum Dot (.)";
+					
+				// Address Validation
+				}else if(alamat.value == ""){
+					Warning.innerHTML = 'Address Must be filled';
+				}else if(alamatx.search("street") == -1){
+					Warning.innerHTML = 'Address must contain ‘street’ word.';
+				}else if(alamat.value.length < 10){
+					Warning.innerHTML = 'Length of Address must be at least 10 characters.';
+					
+				// Captcha Validation
+				}else if(captcha.value != mainCaptcha.value){
+					Warning.innerHTML = 'Typed Re-Captcha did not match with Captcha';
+				}else{
+					Warning.innerHTML = 'Registration Succesful';
+					Warning.style.color = 'blue';
+				}
+			}
+		
+		</script>
+	</head>
+	
+	<body onload="Captcha();">
+	
+	<!-- Registration form -->
+	<div id="form"> 
+		<form>
+			<tr>
+				<td>
+					<table align="left">
+						<tr>
+							<td>Name</td>
+							<td colspan="2"><input type="text" id="username" placeholder="Name" name="nama"/></td>
+						</tr>
+						
+						<tr>
+							<td>Gender</td>
+							<td>
+								<input type="radio" name="gender" id="male" /> Male 
+								<input type="radio" name="gender" id="female" /> Female 
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Password</td>
+							<td colspan="2"><input type="password" id="password" name="password" placeholder="Password" /></td>
+						</tr>
+						
+						<tr>	
+							<td>Confirm password</td>
+							<td colspan="2"><input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm password" /></td>
+						</tr>	
+						
+						<tr>	
+							<td>Email</td>
+							<td colspan="2"><input type="text" id="email" placeholder="E-mail" name="email"/></td>
+						</tr>
+						
+						<tr>	
+							<td>Address</td>
+							<td colspan="2"><textarea id="alamat" rows="5" cols="40" style="resize:none; margin:18px" ></textarea></td>
+						</tr>
+						
+						<tr>
+							<td>
+								Captcha
+							</td>
+							<td>
+								<input type="text" id="mainCaptcha" disabled/>
+							</td>
+							<td>
+								<input type="button" id="refresh" value="Refresh" onclick="Captcha();" />
+							</td>
+						</tr>
+						
+						<tr>
+							<td> 
+								Re-Captcha
+							</td>
+							<td> 
+								<input type="text" id="captcha"/> 
+							</td>
+						</tr>					
+						
+						<tr>
+							<td colspan="3">
+							<span id="Warning">&nbsp;</span>
+							<input align="center" type="button" value="Register" onClick="revalidasi()" />
+							</td>
+						</tr>
+					</table>
+					
+						
+				</td>
+			</tr>			
+		</table>
+	</form>
+	</div>	
+
+	</body>
+	<div id="footer">
+		<center>&copy; 2014 WBP Project</center>
+		<center>Design by Richard Maulana</center>
+	</div>
+</html>

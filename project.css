@@ -1,0 +1,90 @@
+#body {
+	background-image : url(img/ion.png);
+
+}
+
+/**css menu **/
+#cssmenu ul{
+	
+    width: 1280px;
+	height: 30px;
+	background-color: #19e3f5;
+    padding: 0;
+    margin-top: 15;
+    list-style-type: none;
+	padding: 0 5px;
+	}
+
+#cssmenu li{
+	display : inline;
+}
+
+#cssmenu ul li a {
+  font-size: 20px;
+  padding: 50px;
+  text-decoration: none;
+}
+/**catalog **/
+#product {
+	display:block; margin-bottom: 10px; margin-top: 10px
+}
+
+/**banner **/
+#header {
+		width:1280px;
+		height:250px;
+		background-position: center;
+		background-size: cover;
+		
+}
+
+/**footer **/
+#footer { height:90px; background:#ebebeb;  line-height:50px; padding:0 15px; color:#7b7b7b; float : bottom;
+color:#7b7b7b; margin-top:50px; display:block;}
+
+
+/**register **/
+#form{
+width:500px;
+height:580px;
+margin-top: 15px;
+background: #eeeeee;
+color: white;
+font-weight: bold;
+border-radius: 2px;
+}
+
+/** product **/
+#catalog {width:280px; height:380px; }
+
+
+#row {width 1280:px;}
+
+.products { display:block; margin-bottom: 10px; margin-top: 10px; width:1280px; height:1000px;}
+.products ul li{ float:left; margin-bottom:100px;}
+
+
+.product-info{ width:200px; top:150px; left:0;}
+.product-info h5{ background:#17f5e8; color:white; padding:6px 10px; }
+.product-info h6{ font-weight: normal; line-height:4px;}
+.product-info p{ font-size:10px; line-height:10px; text-transform: uppercase; font-weight: bold;  color:#000; padding:2px 0 4px 0;}
+.product-info .product-desc{ padding:-10px; width:200px; }
+.price { display:block; font-size:21px; color:navy; line-height:30px; }
+
+
+/**input form **/
+input {
+    font-size: 12px;
+    outline: none;
+}
+input[type=text], input[type=date], input[type=date], input[type=password] {
+    color: #777;
+    padding-left: 10px;
+    margin: 20px;
+    margin-top: 5px;
+    margin-left: 18px;
+    width: 290px;
+    height: 35px;
+}
+
+
